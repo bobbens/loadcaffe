@@ -99,7 +99,7 @@ void convertProtoToLuaV1(const caffe::NetParameter &netparam, const char* lua_na
   std::ofstream ofs (lua_name);
 
   ofs << "require '" << cuda_package << "'\n";
-  ofs << "require 'cunn'\n";
+  ofs << "require 'nn'\n";
   ofs << "local model = {}\n";
   if(std::string(cuda_package)=="ccn2")
     ofs<< "table.insert(model, {'torch_transpose_dwhb', nn.Transpose({1,4},{1,3},{1,2})})\n";
@@ -346,7 +346,7 @@ void convertProtoToLuaV2(const caffe::NetParameter &netparam, const char* lua_na
   std::ofstream ofs (lua_name);
 
   ofs << "require '" << cuda_package << "'\n";
-  ofs << "require 'cunn'\n";
+  ofs << "require 'nn'\n";
   ofs << "local model = {}\n";
   if(std::string(cuda_package)=="ccn2")
     ofs<< "table.insert(model, {'torch_transpose_dwhb', nn.Transpose({1,4},{1,3},{1,2})})\n";
